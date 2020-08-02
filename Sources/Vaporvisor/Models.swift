@@ -70,21 +70,21 @@ struct MemberValue: Codable {
     }
 }
 
-struct ProcessInfo: Content {
-    let name: String?
-    let group: String?
-    let start: Int?
-    let stop: Int?
-    let now: Int?
-    let state: Int?
-    let statename: String?
-    let spawnerr: String?
-    let exitStatus: Int?
-    let logFile: String?
-    let outLogFile: String?
-    let errorLogFile: String?
-    let pid: Int?
-    let description: String?
+public struct ProcessInfo: Content {
+    public let name: String?
+    public let group: String?
+    public let start: Int?
+    public let stop: Int?
+    public let now: Int?
+    public let state: Int?
+    public let statename: String?
+    public let spawnerr: String?
+    public let exitStatus: Int?
+    public let logFile: String?
+    public let outLogFile: String?
+    public let errorLogFile: String?
+    public let pid: Int?
+    public let description: String?
 
     init(members: [Member]) {
         self.name = members.first(where: { $0.name == "name" })?.value.string

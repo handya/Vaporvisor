@@ -1,7 +1,7 @@
 import Vapor
 import XMLCoder
 
-struct Vaporvisor {
+public struct Vaporvisor {
 
     func getProcessInfo(_ req: Request) throws -> Future<[ProcessInfo]> {
         let body = XMLRPCBody(methodName: "supervisor.getAllProcessInfo")
