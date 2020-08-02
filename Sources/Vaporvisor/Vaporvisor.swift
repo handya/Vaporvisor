@@ -3,7 +3,7 @@ import XMLCoder
 
 public struct Vaporvisor {
 
-    static func getProcessInfo(_ req: Request) throws -> Future<[ProcessInfo]> {
+    public static func getProcessInfo(_ req: Request) throws -> Future<[ProcessInfo]> {
         let body = XMLRPCBody(methodName: "supervisor.getAllProcessInfo")
 
         let client = try req.make(Client.self)
