@@ -3,7 +3,7 @@ import XMLCoder
 
 public struct Vaporvisor {
 
-    func getProcessInfo(_ req: Request) throws -> Future<[ProcessInfo]> {
+    static func getProcessInfo(_ req: Request) throws -> Future<[ProcessInfo]> {
         let body = XMLRPCBody(methodName: "supervisor.getAllProcessInfo")
 
         let client = try req.make(Client.self)
@@ -12,7 +12,7 @@ public struct Vaporvisor {
             .map { self.responseProcecssInfo($0) }
     }
 
-    private func responseProcecssInfo(_ response: MethodResponse) -> [ProcessInfo] {
+    private static func responseProcecssInfo(_ response: MethodResponse) -> [ProcessInfo] {
         let valueElements = response.params.param.value.array.data.value
         return valueElements.map { .init(members: $0.valueStruct.member) }
     }
